@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define	FIREWORK_INDEX_LEN		(158)
 #define STARRY_DATA_LEN			96
 #define	TIDE_DATA_LEN			120
+#define KEY_NUMLOCK_INDEX       33
 
 
 const uint8_t light_value_tab[101] =

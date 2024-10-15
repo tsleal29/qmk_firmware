@@ -42,6 +42,7 @@ uint16_t conkb_report            = 0;
 uint16_t syskb_report            = 0;
 uint8_t  sync_lost               = 0;
 uint8_t  disconnect_delay        = 0;
+bool     uart_repeat_flag        = 0;
 
 extern DEV_INFO_STRUCT dev_info;
 extern host_driver_t  *m_host_driver;
@@ -566,13 +567,28 @@ void UART_Send_BatCfg(void)
  * @param Length data length
  */
 void UART_Send_Bytes(uint8_t *Buffer, uint32_t Length) {
-    writePinLow(NRF_WAKEUP_PIN);
-    wait_us(50);
-
-    uart_transmit(Buffer, Length);
-
-    wait_us(50 + Length * 30);
-    writePinHigh(NRF_WAKEUP_PIN);
+    if(uart_repeat_flag) {
+        for(uint8_t i = 0;i<3;i++)
+        {
+            writePinLow(NRF_WAKEUP_PIN);
+            wait_us(50);
+        
+            uart_transmit(Buffer, Length);
+        
+            wait_us(50 + Length * 32);
+            writePinHigh(NRF_WAKEUP_PIN);  
+        
+            wait_us(200);      
+        }        
+    } else {
+            writePinLow(NRF_WAKEUP_PIN);
+            wait_us(50);
+        
+            uart_transmit(Buffer, Length);
+        
+            wait_us(50 + Length * 32);
+            writePinHigh(NRF_WAKEUP_PIN);          
+    }
 }
 
 /**
@@ -611,7 +627,11 @@ void uart_send_report(uint8_t report_type, uint8_t *report_buf, uint8_t report_s
     memcpy(&Usart_Mgr.TXDBuf[4], report_buf, report_size);
     Usart_Mgr.TXDBuf[4 + report_size] = get_checksum(&Usart_Mgr.TXDBuf[4], report_size);
 
+    uart_repeat_flag = 1;
+
     UART_Send_Bytes(&Usart_Mgr.TXDBuf[0], report_size + 5);
+
+    uart_repeat_flag = 0;
 
     wait_us(200);
 }

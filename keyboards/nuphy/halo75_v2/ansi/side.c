@@ -107,21 +107,19 @@ const uint8_t side_led_index_tab[45] =
 };
 
 
-uint8_t side_line = 45;
-
-bool f_charging = 1;
+uint8_t side_line         = 45;
+bool    f_charging        = 1;
 uint8_t side_mode_a       = 0;
 uint8_t side_mode_b       = 3;
-uint8_t side_light      = 2;
-uint8_t side_speed      = 2;
-uint8_t side_rgb        = 1;
-uint8_t side_colour     = 0;
-uint8_t side_play_point = 0; 
+uint8_t side_light        = 2;
+uint8_t side_speed        = 2;
+uint8_t side_rgb          = 1;
+uint8_t side_colour       = 0;
+uint8_t side_play_point   = 0; 
 uint32_t bat_show_time    = 0;
 bool bat_show_flag        = true;
-
 uint16_t side_play_cnt    = 0;
-uint32_t side_play_timer = 0;
+uint32_t side_play_timer  = 0;
 
 uint8_t r_temp, g_temp, b_temp;
 
@@ -129,27 +127,6 @@ extern DEV_INFO_STRUCT dev_info;
 extern bool f_bat_hold;
 extern user_config_t user_config;
 extern uint16_t rf_link_show_time;
-
-#define IS31FL3733_PWM_REGISTER_COUNT 192
-#define IS31FL3733_LED_CONTROL_REGISTER_COUNT 24
-typedef struct is31fl3733_driver_t {
-    uint8_t pwm_buffer[IS31FL3733_PWM_REGISTER_COUNT];
-    bool    pwm_buffer_dirty;
-    uint8_t led_control_buffer[IS31FL3733_LED_CONTROL_REGISTER_COUNT];
-    bool    led_control_buffer_dirty;
-} PACKED is31fl3733_driver_t;
-extern is31fl3733_driver_t driver_buffers[2];
-bool is_side_rgb_off(void)
-{
-    is31fl3733_led_t led;
-    for (int i = SIDE_INDEX; i < SIDE_INDEX + 10; i++) {
-        memcpy_P(&led, (&g_is31_leds[i]), sizeof(led));
-        if ((driver_buffers[led.driver].pwm_buffer[led.r] != 0) || (driver_buffers[led.driver].pwm_buffer[led.g] != 0) || (driver_buffers[led.driver].pwm_buffer[led.b] != 0)) {
-            return false;
-        }
-    }
-    return true;
-}
 
 /**
  * @brief suspend_power_down_kb

@@ -59,7 +59,6 @@ const uint8_t side_led_index_tab[SIDE_LINE][2] =
 };
 
 
-
 uint8_t side_mode           = 0;
 uint8_t side_light          = 3;
 uint8_t side_speed          = 2;
@@ -76,34 +75,6 @@ extern user_config_t user_config;
 extern uint8_t rf_blink_cnt;
 extern uint16_t rf_link_show_time;
 
-
-/**
- * @brief is_side_rgb_off
- *
- * @return true
- * @return false
- */
-#define IS31FL3733_PWM_REGISTER_COUNT 192
-#define IS31FL3733_LED_CONTROL_REGISTER_COUNT 24
-typedef struct is31fl3733_driver_t {
-    uint8_t pwm_buffer[IS31FL3733_PWM_REGISTER_COUNT];
-    bool    pwm_buffer_dirty;
-    uint8_t led_control_buffer[IS31FL3733_LED_CONTROL_REGISTER_COUNT];
-    bool    led_control_buffer_dirty;
-} PACKED is31fl3733_driver_t;
-extern is31fl3733_driver_t driver_buffers[2];
-
-bool is_side_rgb_off(void)
-{
-    is31fl3733_led_t led;
-    for (int i = SIDE_INDEX; i < SIDE_INDEX + 10; i++) {
-        memcpy_P(&led, (&g_is31_leds[i]), sizeof(led));
-        if ((driver_buffers[led.driver].pwm_buffer[led.r] != 0) || (driver_buffers[led.driver].pwm_buffer[led.g] != 0) || (driver_buffers[led.driver].pwm_buffer[led.b] != 0)) {
-            return false;
-        }
-    }
-    return true;
-}
 /**
  * @brief suspend_power_down_kb
  *
