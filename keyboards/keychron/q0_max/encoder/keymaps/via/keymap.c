@@ -89,3 +89,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
+
+bool rgb_matrix_indicators_user(void) {
+    switch (get_highest_layer(layer_state)) {
+        case MACRO:
+            rgb_matrix_set_color(MACRO_LAYER_INDEX, RGB_RED);
+            break;
+    }
+
+    return false;
+}

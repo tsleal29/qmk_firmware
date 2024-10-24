@@ -47,6 +47,7 @@
 
 /* Indications */
 #    define NUM_LOCK_INDEX	        5
+#    define MACRO_LAYER_INDEX           16
 #    define LOW_BAT_IND_INDEX           { 23 }
 #    define BAT_LEVEL_LED_LIST          { 23, 18, 14, 9, 4 }
 #    define BAT_LEVEL_LED_LIST_SIZE     5  // size of BAT_LEVEL_LED_LIST
