@@ -47,12 +47,19 @@
 
 /* Indications */
 #    define NUM_LOCK_INDEX	        5
+#    define HOMING_KEY_INDEX            16
 #    define MACRO_LAYER_INDEX           16
+#    define BORDER_LED_LIST             { 0, 1, 2, 3, 4, 8, 9, 13, 14, 18, 22, 23, 24, 25 }
+#    define BORDER_LED_LIST_SIZE        14
 #    define LOW_BAT_IND_INDEX           { 23 }
 #    define BAT_LEVEL_LED_LIST          { 23, 18, 14, 9, 4 }
 #    define BAT_LEVEL_LED_LIST_SIZE     5  // size of BAT_LEVEL_LED_LIST
 #    define BAT_LEVEL_STEP              20 // 100 / BAT_LEVEL_LED_LIST_SIZE
 #    define BAT_LEVEL_ANIMATION_NO_CLEAR_ALL
+
+/* Default animation */
+#    define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CUSTOM_homing_keys_bkg
+#    define RGB_MATRIX_DEFAULT_HUE  168
 
 #    define RGB_MATRIX_KEYPRESSES
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
