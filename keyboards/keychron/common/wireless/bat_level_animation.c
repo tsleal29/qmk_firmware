@@ -28,6 +28,14 @@
 #    define LED_DRIVER_IS_ENABLED rgb_matrix_is_enabled
 #endif
 
+#ifndef BAT_LEVEL_LED_LIST_SIZE
+#    define BAT_LEVEL_LED_LIST_SIZE 10
+#endif
+
+#ifndef BAT_LEVEL_STEP
+#    define BAT_LEVEL_STEP 10
+#endif
+
 enum {
     BAT_LVL_ANI_NONE,
     BAT_LVL_ANI_GROWING,
@@ -71,26 +79,38 @@ bool bat_level_animiation_actived(void) {
 
 void bat_level_animiation_indicate(void) {
 #ifdef LED_MATRIX_ENABLE
-    uint8_t  bat_lvl_led_list[10] = BAT_LEVEL_LED_LIST;
+    uint8_t  bat_lvl_led_list[BAT_LEVEL_LED_LIST_SIZE] = BAT_LEVEL_LED_LIST;
 
+#ifdef BAT_LEVEL_ANIMATION_NO_CLEAR_ALL
+    for (uint8_t i = 0; i < BAT_LEVEL_LED_LIST_SIZE; i++) {
+        led_matrix_set_value(bat_lvl_led_list[i], 0);
+    }
+#else
     for (uint8_t i = 0; i <= LED_MATRIX_LED_COUNT; i++) {
         led_matrix_set_value(i, 0);
     }
+#endif
 
     if (animation_state == BAT_LVL_ANI_GROWING || animation_state == BAT_LVL_ANI_BLINK_ON)
-        for (uint8_t i = 0; i < cur_percentage / 10; i++)
+        for (uint8_t i = 0; i < cur_percentage / BAT_LEVEL_STEP; i++)
             led_matrix_set_value(bat_lvl_led_list[i], 255);
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
-    uint8_t  bat_lvl_led_list[10] = BAT_LEVEL_LED_LIST;
+    uint8_t  bat_lvl_led_list[BAT_LEVEL_LED_LIST_SIZE] = BAT_LEVEL_LED_LIST;
 
+#ifdef BAT_LEVEL_ANIMATION_NO_CLEAR_ALL
+    for (uint8_t i = 0; i < BAT_LEVEL_LED_LIST_SIZE; i++) {
+        rgb_matrix_set_color(bat_lvl_led_list[i], 0, 0, 0);
+    }
+#else
     for (uint8_t i = 0; i <= RGB_MATRIX_LED_COUNT; i++) {
         rgb_matrix_set_color(i, 0, 0, 0);
     }
+#endif
 
     if (animation_state == BAT_LVL_ANI_GROWING || animation_state == BAT_LVL_ANI_BLINK_ON) {
-        for (uint8_t i = 0; i < cur_percentage / 10; i++) {
+        for (uint8_t i = 0; i < cur_percentage / BAT_LEVEL_STEP; i++) {
             rgb_matrix_set_color(bat_lvl_led_list[i], r, g, b);
         }
     }
@@ -101,9 +121,9 @@ void bat_level_animiation_update(void) {
     switch (animation_state) {
         case BAT_LVL_ANI_GROWING:
             if (cur_percentage < bat_percentage)
-                cur_percentage += 10;
+                cur_percentage += BAT_LEVEL_STEP;
             else {
-                if (cur_percentage == 0) cur_percentage = 10;
+                if (cur_percentage == 0) cur_percentage = BAT_LEVEL_STEP;
                 animation_state = BAT_LVL_ANI_BLINK_OFF;
             }
             break;

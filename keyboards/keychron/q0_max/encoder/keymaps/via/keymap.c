@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, RGB_MOD,  RGB_VAI, RGB_HUI, _______,
         _______, RGB_RMOD, RGB_VAD, RGB_HUD, _______,
         _______, RGB_SAI,  RGB_SPI, KC_MPRV,
-        _______, RGB_SAD,  RGB_SPD, KC_MPLY, _______,
+        _______, RGB_SAD,  RGB_SPD, KC_MPLY, BAT_LVL,
         _______, RGB_TOG,           KC_MNXT          ),
 
     [L2] = LAYOUT_tenkey_27(
