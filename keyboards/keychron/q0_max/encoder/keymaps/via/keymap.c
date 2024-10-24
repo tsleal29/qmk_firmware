@@ -41,12 +41,12 @@ enum layers {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_tenkey_27(
-        KC_MUTE,   KC_ESC, TO(MACRO), KC_BSPC, KC_DEL,
-        TO(MACRO), KC_NUM, KC_PSLS,   KC_PAST, KC_PMNS,
-        KC_NO,     KC_P7,  KC_P8,	  KC_P9,   KC_PPLS,
-        KC_NO,	   KC_P4,  KC_P5,	  KC_P6,
-        KC_NO,	   KC_P1,  KC_P2,	  KC_P3,   KC_PENT,
-        MO(FN),    KC_P0,             KC_PDOT          ),
+        KC_MUTE, KC_ESC, TO(MACRO), KC_BSPC, KC_DEL,
+        KC_NO,   KC_NUM, KC_PSLS,   KC_PAST, KC_PMNS,
+        KC_NO,   KC_P7,  KC_P8,	    KC_P9,   KC_PPLS,
+        KC_NO,	 KC_P4,  KC_P5,	    KC_P6,
+        KC_NO,	 KC_P1,  KC_P2,	    KC_P3,   KC_PENT,
+        MO(FN),  KC_P0,             KC_PDOT          ),
 
     [FN] = LAYOUT_tenkey_27(
         RGB_TOG, BT_HST1,  BT_HST2, BT_HST3, P2P4G,
@@ -90,7 +90,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-bool rgb_matrix_indicators_user(void) {
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     switch (get_highest_layer(layer_state)) {
         case MACRO:
             rgb_matrix_set_color(MACRO_LAYER_INDEX, RGB_RED);

@@ -59,7 +59,7 @@
 
 /* Default RGB Matrix config */
 #    define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CUSTOM_homing_keys_bkg
-#    define RGB_MATRIX_DEFAULT_HUE  168
+#    define RGB_MATRIX_DEFAULT_HUE  169
 
 #    define RGB_MATRIX_KEYPRESSES
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
