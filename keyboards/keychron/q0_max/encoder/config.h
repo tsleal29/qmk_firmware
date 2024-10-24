@@ -57,7 +57,7 @@
 #    define BAT_LEVEL_STEP              20 // 100 / BAT_LEVEL_LED_LIST_SIZE
 #    define BAT_LEVEL_ANIMATION_NO_CLEAR_ALL
 
-/* Default animation */
+/* Default RGB Matrix config */
 #    define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CUSTOM_homing_keys_bkg
 #    define RGB_MATRIX_DEFAULT_HUE  168
 
