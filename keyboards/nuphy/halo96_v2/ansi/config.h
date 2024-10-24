@@ -17,19 +17,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define RGB_MATRIX_LED_FLUSH_LIMIT  32     
+#define RGB_MATRIX_LED_FLUSH_LIMIT  32
 
-#define TAP_CODE_DELAY              8 
-#define DYNAMIC_KEYMAP_MACRO_DELAY  8 
+#define TAP_CODE_DELAY              8
+#define DYNAMIC_KEYMAP_MACRO_DELAY  8
 // This is the size of the EEPROM for the custom VIA-specific data
-#define EECONFIG_USER_DATA_SIZE     12 
+#define EECONFIG_USER_DATA_SIZE     12
 
-#define DEV_MODE_PIN                C0 
-#define SYS_MODE_PIN                C1  
-#define DC_BOOST_PIN                C2  
-#define NRF_RESET_PIN               B4 
-#define NRF_BOOT_PIN                B5  
-#define NRF_WAKEUP_PIN              C4 
+#define DEV_MODE_PIN                C0
+#define SYS_MODE_PIN                C1
+#define DC_BOOST_PIN                C2
+#define NRF_RESET_PIN               B4
+#define NRF_BOOT_PIN                B5
+#define NRF_WAKEUP_PIN              C4
 
 #define RGB_DRIVER_SDB1             C6  // IS31FL3733 SDB-U8
 #define RGB_DRIVER_SDB2             C7  // IS31FL3733 SDB-U9
@@ -66,9 +66,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_MATRIX_LED_COUNT       (DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL)
 
 #define RGB_MATRIX_DEFAULT_MODE     RGB_MATRIX_CUSTOM_position_mode
-#define RGB_DEFAULT_COLOUR          168
+#define RGB_DEFAULT_COLOUR          169
 
-#define RGB_MATRIX_SLEEP                    
+#define RGB_MATRIX_SLEEP
 
 #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 #define RGB_MATRIX_KEYPRESSES

@@ -48,7 +48,7 @@
 					"Cycle All",
 					"Cycle Left/Right",
 					"Cycle Up/Down",
-                    "Rainbow Moving Chevron",
+          "Rainbow Moving Chevron",
 					"Cycle Out/In",
 					"Cycle Out/In Dual",
 					"Cycle Pinwheel",
@@ -75,8 +75,8 @@
 					"MultiSplash",
 					"Solid Splash",
 					"Solid MultiSplash",
-                    "game_mode",
-                    "position_mode"
+          "Game Mode",
+          "Position Mode"
 				]
 			},
 			{
