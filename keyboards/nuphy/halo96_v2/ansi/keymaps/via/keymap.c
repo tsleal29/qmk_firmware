@@ -4,20 +4,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // layer 0 Mac
 [0] = LAYOUT(
-	KC_ESC, 	KC_SCRL,  	KC_PAUSE,  	MAC_TASK, 	MAC_SEARCH, MAC_VOICE,  MAC_DND,  	KC_MPRV,  	KC_MPLY,  	KC_MNXT, 	KC_MUTE, 	KC_VOLD, 	KC_VOLU, 	MAC_PRTA,	KC_DEL, 	KC_HOME,	KC_END,		KC_PGUP,	KC_PGDN,
+	KC_ESC, 	KC_SCRL,  	KC_PAUSE,  	MAC_TASK, 	MAC_SEARCH, MAC_VOICE,  MAC_DND,  	KC_MPRV,  	KC_MPLY,  	KC_MNXT, 	KC_MUTE, 	KC_VOLD, 	KC_VOLU, 	MO(1),	    KC_DEL, 	KC_HOME,	KC_END,		KC_PGUP,	KC_PGDN,
 	KC_GRV, 	KC_1,   	KC_2,   	KC_3,  		KC_4,   	KC_5,   	KC_6,   	KC_7,   	KC_8,   	KC_9,  		KC_0,   	KC_MINS,	KC_EQL, 	KC_BSPC,				KC_NUM,		KC_PSLS,	KC_PAST,	KC_PMNS,
 	KC_TAB, 	KC_Q,   	KC_W,   	KC_E,  		KC_R,   	KC_T,   	KC_Y,   	KC_U,   	KC_I,   	KC_O,  		KC_P,   	KC_LBRC,	KC_RBRC, 	KC_BSLS,				KC_P7,		KC_P8,		KC_P9,		KC_PPLS,
 	KC_CAPS,	KC_A,   	KC_S,   	KC_D,  		KC_F,   	KC_G,   	KC_H,   	KC_J,   	KC_K,   	KC_L,  		KC_SCLN,	KC_QUOT, 	KC_ENT,								KC_P4,		KC_P5,		KC_P6,
 	KC_LSFT,				KC_Z,   	KC_X,   	KC_C,  		KC_V,   	KC_B,   	KC_N,   	KC_M,   	KC_COMM,	KC_DOT,		KC_SLSH,	KC_RSFT,				KC_UP,		KC_P1,		KC_P2,		KC_P3,		KC_PENT,
-	KC_LCTL,	KC_LALT,	KC_LGUI,										KC_SPC, 							KC_RGUI,	MO(1),   							KC_LEFT,	KC_DOWN,    KC_RGHT,	KC_P0,		KC_PDOT),
+	KC_LCTL,	KC_LALT,	KC_LGUI,										KC_SPC, 							KC_RGUI,	KC_RALT,   							KC_LEFT,	KC_DOWN,    KC_RGHT,	KC_P0,		KC_PDOT),
 // layer 1 Mac Fn
 [1] = LAYOUT(
-	_______, 	KC_F1,  	KC_F2,  	KC_F3, 		KC_F4,  	KC_F5,  	KC_F6,  	KC_F7,  	KC_F8,  	KC_F9, 		KC_F10, 	KC_F11, 	KC_F12, 	MAC_PRT,	KC_INS,		_______,	_______,	_______,	_______,
+	_______, 	KC_F1,  	KC_F2,  	KC_F3, 		KC_F4,  	KC_F5,  	KC_F6,  	KC_F7,  	KC_F8,  	KC_F9, 		KC_F10, 	KC_F11, 	KC_F12, 	_______,	_______,	_______,	_______,	_______,	_______,
 	_______, 	LNK_BLE1,  	LNK_BLE2,  	LNK_BLE3,  	LNK_RF,   	_______,   	_______,   	_______,   	_______,   	_______,  	_______,   	_______,	_______, 	_______,				_______,	_______,	_______,	_______,
 	_______, 	_______,   	_______,   	_______,  	_______,   	_______,   	_______,   	_______,   	_______,   	_______,  	_______,   	DEV_RESET,	SLEEP_MODE, BAT_SHOW,				_______,	_______,	_______,	_______,
 	_______,	_______,   	_______,   	_______,  	_______,   	_______,   	_______,	_______,   	_______,   	_______,  	_______,	_______, 	_______,							_______,	_______,	_______,
-	_______,				_______,   	_______,   	_______,  	_______,   	_______,   	_______,	MO(4), 		RGB_SPD,	RGB_SPI,	_______,	KC_NO,				    RGB_VAI,	_______,	_______,	_______,	_______,
-	_______,	_______,	_______,										_______, 							_______,	MO(1),   							RGB_MOD,	RGB_VAD,    RGB_HUI,	_______,	_______),
+	_______,				_______,   	_______,   	_______,  	_______,   	_______,   	_______,	_______,	RGB_SPD,	RGB_SPI,	_______,	MO(4),				    RGB_VAI,	_______,	_______,	_______,	_______,
+	_______,	_______,	_______,										_______, 							_______,	_______,   							RGB_MOD,	RGB_VAD,    RGB_HUI,	_______,	_______),
 // layer 2 win
 [2] = LAYOUT(
 	KC_ESC, 	KC_F1,  	KC_F2,  	KC_F3, 		KC_F4,  	KC_F5,  	KC_F6,  	KC_F7,  	KC_F8,  	KC_F9, 		KC_F10, 	KC_F11, 	KC_F12, 	MAC_PRTA,	KC_DEL,		KC_HOME,	KC_END,		KC_PGUP,	KC_PGDN,
@@ -32,8 +32,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, 	LNK_BLE1,  	LNK_BLE2,  	LNK_BLE3,  	LNK_RF,   	_______,   	_______,   	_______,   	_______,   	_______,  	_______,   	_______,	_______, 	_______,				_______,	_______,	_______,	_______,
 	_______, 	_______,   	_______,   	_______,  	_______,   	_______,   	_______,   	_______,   	_______,   	_______,  	_______,   	DEV_RESET,	SLEEP_MODE, BAT_SHOW,				_______,	_______,	_______,	_______,
 	_______,	_______,   	_______,   	_______,  	_______,   	_______,   	_______,	_______,   	_______,   	_______,  	_______,	_______,  	_______,							_______,	_______,	_______,
-	_______,				_______,   	_______,   	_______,  	_______,   	_______,   	_______,	MO(4), 		RGB_SPD,	RGB_SPI,	_______, 	KC_NO,				    RGB_VAI,	_______,	_______,	_______,	_______,
-	_______,	_______,	_______,										_______, 							_______,	MO(3), 							    RGB_MOD,	RGB_VAD,    RGB_HUI,	_______,	_______),
+	_______,				_______,   	_______,   	_______,  	_______,   	_______,   	_______,	_______,	RGB_SPD,	RGB_SPI,	_______, 	MO(4),				    RGB_VAI,	_______,	_______,	_______,	_______,
+	_______,	_______,	_______,										_______, 							_______,	_______, 							    RGB_MOD,	RGB_VAD,    RGB_HUI,	_______,	_______),
 // layer 4 function
 [4] = LAYOUT(
 	_______, 	_______,  	_______,  	_______, 	_______,  	_______,  	_______,  	_______,  	_______,  	_______, 	_______, 	_______, 	_______, 	_______,	_______,	_______,	_______,	_______,	_______,
@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, 	_______,   	_______,   	_______,  	_______,   	_______,   	_______,   	_______,   	_______,   	_______,  	_______,   	_______,	_______, 	_______,				_______,	_______,	_______,	_______,
 	_______,	_______,   	_______,   	_______,  	_______,   	_______,   	_______,   	_______,   	_______,   	_______,  	_______,	_______, 	_______,							_______,	_______,	_______,
 	_______,				_______,   	_______,   	_______,  	_______,   	_______,   	_______,   	_______,   	SIDE_SPD,	SIDE_SPI,	SIDE_MOD_B,	_______,				SIDE_VAI,	_______,	_______,	_______,	_______,
-	_______,	_______,	_______,										_______, 							_______,	MO(4),   							SIDE_MOD_A,	SIDE_VAD,   SIDE_HUI,	_______,	_______)
+	_______,	_______,	_______,										_______, 							_______,	_______,   							SIDE_MOD_A,	SIDE_VAD,   SIDE_HUI,	_______,	_______)
 };
 
 
@@ -102,7 +102,7 @@ const is31_led PROGMEM g_is31_leds[RGB_MATRIX_LED_COUNT] = {
     {1, G_6,    H_6,    I_6},       // "7"
     {1, G_7,    H_7,    I_7},       // "8"
     {1, G_8,    H_8,    I_8},       // "9"
-    {1, G_9,    H_9,    I_9},       // "+"    
+    {1, G_9,    H_9,    I_9},       // "+"
 
     {0, J_4,    K_4,    L_4},       // "Caps"  55
     {0, J_5,    K_5,    L_5},       // "A"
@@ -119,7 +119,7 @@ const is31_led PROGMEM g_is31_leds[RGB_MATRIX_LED_COUNT] = {
     {1, J_4,    K_4,    L_4},       // "Enter"
     {1, J_5,    K_5,    L_5},       // "4"
     {1, J_6,    K_6,    L_6},       // "5"
-    {1, J_7,    K_7,    L_7},       // "6" 
+    {1, J_7,    K_7,    L_7},       // "6"
 
     {0, M_4,    N_4,    O_4},       // "Shift"  71
     {0, M_5,    N_5,    O_5},       // "Z"
@@ -151,22 +151,22 @@ const is31_led PROGMEM g_is31_leds[RGB_MATRIX_LED_COUNT] = {
     {1, J_8,    K_8,    L_8},       // "0"
     {1, J_9,    K_9,    L_9},       // "D"
 
-    {0, P_8,    Q_8,    R_8},       // 
+    {0, P_8,    Q_8,    R_8},       //
     {0, P_9,    Q_9,    R_9},       //
     {0, P_10,   Q_10,   R_10},      //
     {0, P_11,   Q_11,   R_11},      //
     {0, P_12,   Q_12,   R_12},      //
 
-    {1, P_1,    Q_1,    R_1},       // 
+    {1, P_1,    Q_1,    R_1},       //
     {1, P_2,    Q_2,    R_2},       //
     {1, P_3,    Q_3,    R_3},       //
-    {1, P_4,    Q_4,    R_4},       // 
-    {1, P_5,    Q_5,    R_5},       // 
-    
+    {1, P_4,    Q_4,    R_4},       //
+    {1, P_5,    Q_5,    R_5},       //
+
     {0, P_3,    Q_3,    R_3},       // 2    109
     {0, P_2,    Q_2,    R_2},       // 3
     {0, P_1,    Q_1,    R_1},       // 3
-    {0, M_1,    N_1,    O_1},       // 3     
+    {0, M_1,    N_1,    O_1},       // 3
     {0, M_2,    N_2,    O_2},       // 3
     {0, M_3,    N_3,    O_3},       // 3
     {0, J_3,    K_3,    L_3},       // 3
